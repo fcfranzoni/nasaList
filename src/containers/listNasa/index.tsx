@@ -1,22 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getNasaInfo } from "./service/";
+import { useNasa } from "../../context";
+import nasaMock from "./mock";
+import ListNasa from "./components/List";
 
 const Nasa = () => {
-  const [datas, setDatas]: any = useState([]);
+  const [datas, setDatas]: any = useState({});
+  const { neoClicked } = useNasa();
 
   useEffect(() => {
-    getNasaInfo("feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY").then((response) => {
-      setDatas(response.data);
-    });
+    console.log(nasaMock.data);
+    setDatas(nasaMock.data);
+    // getNasaInfo()
+    //   .then((response) => {
+    //     setDatas(response.data);
+    //   })
+    //   .catch((err) => {
+    //     debugger;
+    //     console.error(err.message);
+    //   });
   }, []);
 
+  useEffect(() => {
+    console.log(neoClicked);
+  }, [neoClicked]);
 
-  if (!datas || datas.length === undefined) {
-    return (
-      <div style={{ maxWidth: 900, padding: 30 }}>
-        Dados: {datas && <h1>{JSON.parse(datas)}</h1>}
-      </div>
-    );
+  if (Object.keys(datas).length > 0) {
+    const { near_earth_objects }: any = datas;
+    const ObjToArray = Object.entries(near_earth_objects).map((x) => {
+      return x;
+    });
+
+    return <ListNasa list={ObjToArray} />;
   } else return "No data";
 };
 
