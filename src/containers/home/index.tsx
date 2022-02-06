@@ -1,22 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import * as Styles from "./styles";
 
-const Home = () =>{
+const Home = () => {
   return (
-    <div>
-      <h1>Página Inicial</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/sobre">Sobre</Link>
-          </li>
-          <li>
-            <Link to="/usuario">Usuario</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <Styles.Container>
+      <Link to="/nasa">Nasa</Link>
+    </Styles.Container>
   );
-}
+};
 
 export default Home;

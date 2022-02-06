@@ -2,23 +2,32 @@ import React, { useCallback, useContext, useState } from "react";
 
 interface NasaContextData {
   neoClicked: string;
+  datas: {};
   handleNeo(neoName: string): void;
+  handleSetData(dataResponse: {}): void;
 }
 
 const NasaContext = React.createContext<NasaContextData>({} as NasaContextData);
 
 const NasaProvider: React.FC = ({ children }) => {
-  const [neoClicked, setNeoClicked] = useState('');
+  const [neoClicked, setNeoClicked] = useState("");
+  const [datas, setDatas]: any = useState({});
+
+  const handleSetData = useCallback((dataResponse) => {
+    setDatas(dataResponse);
+  }, []);
 
   const handleNeo = useCallback((name: string) => {
-    setNeoClicked(name)
+    setNeoClicked(name);
   }, []);
 
   return (
     <NasaContext.Provider
       value={{
         neoClicked,
+        datas,
         handleNeo,
+        handleSetData,
       }}
     >
       {children}
