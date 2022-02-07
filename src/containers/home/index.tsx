@@ -5,7 +5,7 @@ import * as Styles from "./styles";
 const Home = () => {
   return (
     <Styles.Container>
-      <Link to="/nasa">Nasa</Link>
+      <a href="/nasa">Nasa</a>
     </Styles.Container>
   );
 };

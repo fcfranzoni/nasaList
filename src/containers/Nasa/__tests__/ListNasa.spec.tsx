@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import ListNasa from "../../containers/Nasa/components/List";
+import ListNasa from "../components/List";
 
 describe("Header component", () => {
   it("should be able to render an ListNasa", () => {

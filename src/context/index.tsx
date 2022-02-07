@@ -1,4 +1,8 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useState, ReactNode } from "react";
+
+interface NasaProps {
+  children: ReactNode;
+}
 
 interface NasaContextData {
   neoClicked: string;
@@ -9,7 +13,7 @@ interface NasaContextData {
 
 const NasaContext = React.createContext<NasaContextData>({} as NasaContextData);
 
-const NasaProvider: React.FC = ({ children }) => {
+function NasaProvider({ children }: NasaProps): JSX.Element {
   const [neoClicked, setNeoClicked] = useState("");
   const [datas, setDatas]: any = useState({});
 
@@ -33,7 +37,7 @@ const NasaProvider: React.FC = ({ children }) => {
       {children}
     </NasaContext.Provider>
   );
-};
+}
 
 function useNasa(): NasaContextData {
   const context = useContext(NasaContext);

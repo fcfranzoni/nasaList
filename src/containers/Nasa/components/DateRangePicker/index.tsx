@@ -8,16 +8,13 @@ import { calculateDates } from "../../../../helpers";
 
 function NasaDatePicker() {
   const { handleSetData } = useNasa();
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
-    null,
-    null,
-  ]);
+  const [dateRange, setDateRange] = useState<[any, any]>([null, null]);
   const [startDate, endDate] = dateRange;
 
-  const handleChange = (date: [Date | null, Date | null], e: any) => {
+  function handleChange(date: [Date, Date]) {
     setDateRange(date);
 
-    if (date[1]?.getDate && calculateDates(date[0]!, date[1]!)) {
+    if (date[1].getDate() && calculateDates(date[0]!, date[1]!)) {
       getNasaInfo({ inititalDate: date[0], endDate: date[1] })
         .then((response) => {
           handleSetData(response.data);
@@ -26,7 +23,7 @@ function NasaDatePicker() {
           console.error(err.message);
         });
     }
-  };
+  }
 
   return (
     <DatePicker
