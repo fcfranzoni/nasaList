@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Nasa Search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 🏷️ Sobre
 
-In the project directory, you can run:
+Aplicação de busca de Neo utilizando a Api da Nasa
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📦 Como baixar e executar?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Antes de baixar e executar o projeto**, é necessário ter o **Node.js** já instalado e, em seguida, instalar as seguintes ferramentas:
 
-### `npm test`
+- [Git](https://git-scm.com/)
+- [Yarn](https://classic.yarnpkg.com/lang/en/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ⬇️ Baixando o projeto
 
-### `npm run build`
+Abra o terminal do seu sistema operacional e execute os seguintes comandos:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+  # Clonar o repositório
+  git clone https://github.com/fcfranzoni/nasaList.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  # Instalar as dependências
+  npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🌐 Variáveis de ambiente
 
-### `npm run eject`
+Na raíz do projeto você encontrará o arquivo `.env.development`. A partir dele, crie um outro arquivo chamado `.env` utilizando a mesma estutura.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Serão necessárias duas variáveis:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```env
+  REACT_APP_ENVIRONMENT=(utilizar o ambiente de acordo com o desenvolvimento (development | production))
+  REACT_APP_NASA_API_URL= (Atualmente utilizando https://api.nasa.gov/neo/rest/v1/)
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para isso, acesse o site da [API da Nasa](https://api.nasa.gov/) 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🏃 Executando
 
-## Learn More
+Com tudo configurado, iremos iniciar a aplicação:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  # Executar o servidor
+  yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Testes
+
+Para executar os testes, execute:
+
+```bash
+  # Rodar testes
+  yarn test
+
+  # Rodar testes e gerar coverage report
+  yarn run test:coverage
+```
+
+---
+
+Desenvolvido com 💜 por Fábio Franzoni 
