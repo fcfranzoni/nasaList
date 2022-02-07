@@ -16,8 +16,15 @@ const LoadingView = styled.div`
   animation: ${rotate} 2s linear infinite;
   padding: 2rem 1rem;
   font-size: 1.2rem;
-
 `;
 
+const WrapLoadingView = styled.div`
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  /* border: 3px solid green; */
+  padding: 10px;
+  margin-top: 50px;
+`;
 
-export default LoadingView
+export { LoadingView, WrapLoadingView };

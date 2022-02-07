@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Container = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 0 10px 0;
+  padding: 10px;
 
   img {
     margin-bottom: 1.6rem;

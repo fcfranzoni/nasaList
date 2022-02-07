@@ -4,19 +4,13 @@ import { useNasa } from "../../context";
 import nasaMock from "./mock";
 
 import ListNasa from "./components/List";
-import LoadingView from "./components/LoadingView";
+import { LoadingView, WrapLoadingView } from "./components/LoadingView";
 import FormNasa from "./components/Form";
 
 import * as Styles from "./styles";
 
 const Nasa = () => {
   const { datas } = useNasa();
-
-  // const { data } = nasaMock;
-
-  // let datas = data;
-  // debugger;
-
   if (Object.keys(datas).length > 0) {
     const { near_earth_objects }: any = datas;
     const ObjToArray = Object.entries(near_earth_objects)
@@ -29,9 +23,9 @@ const Nasa = () => {
 
     return (
       <>
-        <Styles.Container>
+        <Styles.WrapForm>
           <FormNasa />
-        </Styles.Container>
+        </Styles.WrapForm>
         <Styles.Container>
           <ListNasa list={ObjToArray} />
         </Styles.Container>
@@ -39,10 +33,15 @@ const Nasa = () => {
     );
   } else
     return (
-      <Styles.Container>
-        <FormNasa />
-        <LoadingView> Carregando </LoadingView>
-      </Styles.Container>
+      <>
+        <Styles.WrapForm>
+          <FormNasa />
+        </Styles.WrapForm>
+
+        <WrapLoadingView>
+          <LoadingView> Carregando ... </LoadingView>
+        </WrapLoadingView>
+      </>
     );
 };
 

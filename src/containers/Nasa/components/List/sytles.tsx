@@ -11,6 +11,9 @@ const List = styled.ul`
   background-color: #fff;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  height: 500px;
+  overflow: auto;
+  width: 300px;
 `;
 
 const ListItem = styled.li`
@@ -38,8 +41,9 @@ const Container = styled.div`
 
 const Title = styled.span`
   color: #8c8c8c;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.4rem;
+  margin: 20px 0;
 `;
 
 export { List, ListItem, Container, Title };

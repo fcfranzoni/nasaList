@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ptBr from "date-fns/locale/pt-BR";
 import { useNasa } from "../../../../context";
 import { getNasaInfo } from "../../service";
+import { calculateDates } from "../../../../helpers";
 
 function NasaDatePicker() {
   const { handleSetData } = useNasa();
@@ -15,18 +16,13 @@ function NasaDatePicker() {
 
   const handleChange = (date: [Date | null, Date | null], e: any) => {
     setDateRange(date);
-    debugger;
-    if (date[1]?.getDate) {
-      getNasaInfo(
-        date[0]?.toLocaleDateString("sv-SE"),
-        date[1].toLocaleDateString("sv-SE")
-      )
+
+    if (date[1]?.getDate && calculateDates(date[0]!, date[1]!)) {
+      getNasaInfo({ inititalDate: date[0], endDate: date[1] })
         .then((response) => {
-          debugger;
           handleSetData(response.data);
         })
         .catch((err) => {
-          debugger;
           console.error(err.message);
         });
     }
@@ -41,7 +37,6 @@ function NasaDatePicker() {
       locale={ptBr}
       monthsShown={2}
       onChange={handleChange}
-      placeholderText="Selecione a data Inicial e Final"
       withPortal
     />
   );
