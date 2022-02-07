@@ -36,7 +36,7 @@ Serão necessárias duas variáveis:
   REACT_APP_NASA_API_URL= (Atualmente utilizando https://api.nasa.gov/neo/rest/v1/)
 ```
 
-Para isso, acesse o site da [API da Nasa](https://api.nasa.gov/neo/rest/v1/) 
+Para isso, acesse o site da [API da Nasa](https://api.nasa.gov/) 
 
 ### 🏃 Executando
 
